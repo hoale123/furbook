@@ -11,13 +11,17 @@ function App() {
     .then(data => setBlogs(data))
   }, [])
 
-  console.log(blogs)
+  // console.log(blogs)
 
   return (
     <div className="App">
       Lets learn react test deployment  
       {blogs.map((blog) => {
-        return blog.title
+         (
+          <h1>
+            this is a {blog.title}
+          </h1>
+        )
       })}
     </div>
   );
