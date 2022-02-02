@@ -16,13 +16,13 @@ function App() {
   return (
     <div className="App">
       Lets learn react test deployment  
-      {blogs.map((blog) => {
+      {blogs.map((blog) => 
          (
           <h1>
             this is a {blog.title}
           </h1>
         )
-      })}
+      )}
     </div>
   );
 }
