@@ -19,7 +19,7 @@ function App() {
       {blogs.map((blog) => 
          (
           <h1>
-            this is a {blog.title} 2
+            this is a {blog.title} 3
           </h1>
         )
       )}
