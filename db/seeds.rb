@@ -5,4 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Blog.create(title: "good title")
+require 'faker'
+puts "Seeding..."
+
+User.create(username:"hoa", password:  "1234567", profile_picture:Faker::Avatar.image, bio: "Full Stack Dev" )
+
+
+puts "Done Seeding!"

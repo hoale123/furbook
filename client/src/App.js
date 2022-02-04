@@ -5,41 +5,40 @@ import PetNav from './components/pet-nav'
 import PictureBox from './components/picture-box'
 import AboutBox from './components/about-box'
 import Posts from './components/posts'
+import TitleHeader from "./components/TitleHeader"
+import Homepage from "./components/Homepage"
 import './App.css';
 
 function App() {
-  // const [blogs, setBlogs] = useState([])
+  const [user, setUser] = useState(null)
 
-  // useEffect(() => {
-  //   fetch("/blogs")
-  //   .then(r => r.json())
-  //   .then(data => setBlogs(data))
-  // }, [])
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
-  // console.log(blogs)
 
   return (
-    <div className="App">
-    <PetNav/>
-    <div class="container">
-      <div class="row">
-        <PictureBox/>
-        <AboutBox/>
-      </div>
-      <div class="row">
-        <Posts/>
-      </div>
-    </div>
+  <div className="App">
+      <TitleHeader user={user} />
+      <Homepage user={user} setUser={setUser} />
   </div>
-      /* Lets learn react test deployment  
-      {blogs.map((blog) => 
-         (
-          <h1>
-            this is a {blog.title} 4
-          </h1>
-        )
-      )} */
   );
 }
 
 export default App;
+
+    // <PetNav/>
+    // <div class="container">
+    //   <div class="row">
+    //     <PictureBox/>
+    //     <AboutBox/>
+    //   </div>
+    //   <div class="row">
+    //     <Posts/>
+    //   </div>
+    // </div>
