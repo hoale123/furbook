@@ -8,7 +8,11 @@
 require 'faker'
 puts "Seeding..."
 
-User.create(username:"hoa", password:  "1234567", profile_picture:Faker::Avatar.image, bio: "Full Stack Dev" )
+u1 = User.create(username:"hoa", password:  "1234567", profile_picture:Faker::Avatar.image, bio: "Full Stack Dev" )
+
+p1 = Post.create(text: Faker::Quotes::Shakespeare.hamlet_quote, user_id: User.all.sample.id)
+
+c1 = Comment.create(body:"Nice Post", user_id: u1.id, post_id: p1.id)
 
 
 puts "Done Seeding!"

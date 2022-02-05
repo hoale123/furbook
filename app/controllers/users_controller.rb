@@ -1,38 +1,59 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:create]
+  skip_before_action :authorize, only: [:create, :index]
 
-  # GET /users
   def index
-    users = User.all
-
-    render json: @users
+      users = User.all
+      render json: users
   end
-
-  # GET /users/1
+  
   def show
-    render json: @current_user, status: :accepted
+      render json: @current_user, status: :accepted
   end
 
-  # POST /users
-  def create
-    user = User.create!(user_params)
-    session[:user_id] = user.id
-    render json: user, status: :created
+  def create #signup
+      # chanign the parameters to a hash, so I can change them
+      # Remove :profile_picture if it's empty
+      parameters = user_params.to_h
+      if parameters[:profile_picture].blank? then 
+          parameters.delete(:profile_picture)
+      end
+
+      user = User.create!(parameters)
+      session[:user_id] = user.id
+      render json: user, status: :created 
+  end 
+  
+  def show
+      render json: @current_user, status: :accepted 
   end
 
-  # PATCH/PUT /users/1
   def update
-    @current_user.update!(user_params)
-    render json: @current_user, status: :accepted
-  end
+      #chanign the parameters to a hash, so I can change them
+      #if profile picture is blank, then I replace with the default value by using the User.column_defaults["profile_picture"]
+      parameters = user_params.to_h
+      if parameters[:profile_picture].blank? then 
+          parameters[:profile_picture] = User.column_defaults["profile_picture"]
+      end
 
-  # DELETE /users/1
-  def destroy
-    @current_user.destroy
+      @current_user.update!(parameters)
+      render json: @current_user, status: :accepted
+ 
   end
+    
+
+  # def destroy
+  #     user = User.find_by(id: params[:id])
+  #     user.destroy
+  # end
 
   private
-    def user_params
-      params.permit(:username, :password_digest, :profile_picture, :bio)
-    end
+  # Only allow a list of trusted parameters through.
+  def user_params
+      params.permit(:username, :password, :profile_picture, :bio)
+  end 
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @user = User.find(params[:id])
+  end
 end

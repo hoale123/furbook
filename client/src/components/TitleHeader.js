@@ -12,7 +12,7 @@ function TitleHeader({ user }) {
             src={logo}
             style={{ float: "left", height: "30px", width: "30px" }}
           /> */}
-          Messaging Board
+          FurBook
           {/* <Image
             src={logo}
             style={{ float: "right", height: "30px", width: "30px" }}
@@ -43,7 +43,7 @@ function TitleHeader({ user }) {
           }}
         >
           <Header as="h2" style={{ fontWeight: "lighter" }}>
-            Welcome to Message Board{" "}
+            Welcome to FurBook{" "}
           </Header>
           {/* <Image
             src={typingLogo}
@@ -56,10 +56,7 @@ function TitleHeader({ user }) {
             }}
           /> */}
           <p style={{ fontSize: "16px" }}>
-            Keeping up with friends is faster and easier than ever. Share
-            updates, engage with friends, and stay connected to communities
-            important to you. Enjoy our minimalists, plainer-than-a-plain-bagel
-            design.🥯
+            The best social platform for all pets
           </p>
 
           <div style={{ textAlign: "center", fontSize: "16px" }}>
