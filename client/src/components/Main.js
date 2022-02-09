@@ -1,5 +1,4 @@
 import PostContainer from "./PostContainer";
-// import Posts from "./posts"
 import Profile from "./Profile";
 import { Switch, Route } from "react-router-dom";
 
@@ -17,11 +16,7 @@ function Main({ user, setUser }) {
       <Switch>
         <Route exact path="/">
       <h1>{user.username}'s Book </h1>
-        {/* <div class="row">
-         <Posts/>
-        </div> */}
           <PostContainer user={user} />
-
         </Route>
 
         <Route exact path="/profile-edit">

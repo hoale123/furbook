@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-// import Post from "./Post.js";
 import Posts from "./posts"
 import PostForm from "./PostForm";
-
 function PostContainer({ user }) {
   const [postArray, setPostArray] = useState([]);
   useEffect(() => {
@@ -19,7 +17,7 @@ function PostContainer({ user }) {
             post={post}
             user={user}
             key={post.id}
-            id={post.id}
+            id={post.id} // post.id
             content={post.text}
             username={post.user.username}
             avatar={post.user.profile_picture}
@@ -30,7 +28,7 @@ function PostContainer({ user }) {
             postArray={postArray}
             setPostArray={setPostArray}
           />
-        ) : null}
+         ) : null} 
       </>
     );
   });

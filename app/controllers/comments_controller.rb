@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   skip_before_action :authorize, only: [:create, :index, :show]
-  # before_action :set_comment, only: [:show, :update, :destroy]
+  before_action :set_comment, only: [:show, :update, :destroy]
 
   # GET /comments
   def index
@@ -15,16 +15,18 @@ class CommentsController < ApplicationController
     render json: comment, status: :ok
   end
 
-  # POST /comments
   # def create
-  #   comment = @current_user.comments.create!(comment_params)
+  #   comment = Comment.create!(comment_params)
   #   render json: comment, status: :created
   # end
-
-  def create 
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(params[:comment].permit(:body))
+  def create
+    @comment = Comment.create!(comment_params)
+      render json: @comment, status: :created, location: @comment
+      rescue ActiveRecord::RecordInvalid => invalid
+      render json: { errors: invalid.record.errors.full_messages }
   end
+
+
 
   # PATCH/PUT /comments/1
   def update
@@ -42,12 +44,12 @@ end
 
   private
     # # Use callbacks to share common setup or constraints between actions.
-    # def set_comment
-    #   @comment = Comment.find(params[:id])
-    # end
+    def set_comment
+      @comment = @current_user.comments.find(params[:id])
+    end
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.permit(:body, :user_id, :post_id)
+      params.require(:comment).permit(:body, :user_id, :post_id)
     end
 end

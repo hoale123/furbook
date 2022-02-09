@@ -1,31 +1,9 @@
-// import React from 'react'
 
+import { useState,useEffect } from "react";
+// import Comments from "./Comments";
+import CommentForm from './CommentForm'
+import CommentItem from "./CommentItem";
 
-// const Posts = () => {
-//     return (
-//         <div class="col-12">
-//         <div class="list-group">
-//           <h1 href="#" class="list-group-item list-group-item-action active">
-//             <div>
-//               <h5>Recent Posts</h5>
-//             </div>
-//           </h1>
-//           <li href="#" class="list-group-item list-group-item-action">
-//             <div>
-//               <h5>Takota McConner Says:</h5>
-//               <small class="text-muted">3 days ago</small>
-//             </div>
-//             <p>Did nothing today, just layed around and ate food #bestdayever</p>
-            // <input placeholder="comment.." />
-//           </li>
-//         </div>
-//       </div>
-//     )
-// }
-
-
-// export default Posts;
-import { useState } from "react";
 import {
   Form,
   Button,
@@ -34,6 +12,7 @@ import {
   Image,
 } from "semantic-ui-react";
 function Post({
+  post,
   user,
   id,
   content,
@@ -46,6 +25,28 @@ function Post({
   postArray,
   setPostArray
 }) {
+  const [comments, setCommentArray] = useState([]);
+  const [ addNew, setAddNew ] = useState(false)
+
+  useEffect(() => {
+    fetch("/comments")
+      .then((resp) => resp.json())
+      .then(setCommentArray);
+  }, []);
+
+  function handleAddComment(addedComment) {
+    setCommentArray([...comments, addedComment]);
+    setAddNew(!addNew)
+  }
+
+  const [singlePost, setSinglePost] = useState(post)
+  // console.log(post)
+  useEffect(() => {
+    fetch("/posts")
+      .then((resp) => resp.json())
+      .then((data) => setSinglePost(data));
+  }, []);
+
   const [isClicked, setIsClicked] = useState(false);
   const [updatedText, setUpdatedText] = useState(content);
 
@@ -54,7 +55,7 @@ function Post({
       method: "DELETE",
     }).then((res) => res.json());
     const postsToDisplay = postArray.filter((post) => {
-      console.log(post.id, id);
+      // console.log(post.id, id);
       if (post.id === id) return false;
       else return true;
     });
@@ -109,12 +110,12 @@ function Post({
           style={{ maxWidth: 250,   marginLeft:"auto",
           marginRight:"auto" }}
           />  
-        <Header as="h3" style={{fontWeight:"lighter"}}>Username: {username}</Header>
         {updatedAt === createdAt ? (
           <Header style={{fontWeight:"lighter", fontSize: "12px" }}>Posted: {date}</Header>
           ) : (
             <Header style={{fontWeight:"lighter", fontSize: "12px" }}>Updated: {updatedDate}</Header>
             )}
+        <Header as="h3" style={{fontWeight:"lighter"}}>{username} Posted:</Header>
         {!isClicked ? (
           <p style={{fontWeight:"lighter", fontSize: "20px", marginLeft:"auto", marginRight:"auto",marginBottom:"0px",paddingLeft:"100px", paddingRight:"100px" }}>{content}</p>
           ) : (
@@ -144,10 +145,36 @@ function Post({
             <Button onClick={handleRemove} className="remove">
               Delete
             </Button>
-            <input placeholder="comment.." />
+            {comments.map((comment) => (
+              
+              <CommentItem
+              user={username}
+              key={comment.id}
+              comment={comment}
+              post={post}
+              />
+              ))}
           </>
-        ) :<input placeholder="comment.." />
-      }
+          
+          ) :
+          
+        <>
+            {/* <Comments /> */}
+        <CommentForm post={singlePost} user={user}handleAddComment={handleAddComment} />
+         <>
+          {comments.map((comment) => (
+            
+            <CommentItem
+            key={comment.id}
+            comment={comment}
+            username={username}
+            user={user}
+            post={post}
+            />
+            ))}
+      </> 
+        </>
+         }
       </div>
       <br />
       </>

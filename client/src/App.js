@@ -1,10 +1,6 @@
 
 import React from 'react';
 import { useState, useEffect } from 'react';
-import PetNav from './components/pet-nav'
-import PictureBox from './components/picture-box'
-import AboutBox from './components/about-box'
-import Posts from './components/posts'
 import TitleHeader from "./components/TitleHeader"
 import Homepage from "./components/Homepage"
 import './App.css';
