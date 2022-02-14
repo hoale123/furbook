@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-function NameUpdater ({ user, setUser, editName, setEditName }) {
-    const [ name, setName]= useState(user.name)
+function NameUpdater ({ user, setUser, editUsername, setEditUsername }) {
+    const [ username, setUsername]= useState(user.username)
 
     const handleUpdate = (e) => {
         e.preventDefault();
@@ -11,13 +11,13 @@ function NameUpdater ({ user, setUser, editName, setEditName }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                name: name
+                username: username
             }),
         })
         .then((r) => r.json())
         .then(data => {
             setUser(data)
-            setEditName(!editName)
+            setEditUsername(!editUsername)
         }) 
     }
 
@@ -30,11 +30,11 @@ function NameUpdater ({ user, setUser, editName, setEditName }) {
                 </span>
 
                 <span style={{paddingLeft: '20px'}}>
-                <button onClick={()=>setEditName(!editName)} className="ui primary button">X</button>
+                <button onClick={()=>setEditUsername(!editUsername)} className="ui primary button">X</button>
                 </span>   
             </h4>
             <div className="form-group">
-                <input className='edit-input' onChange={(e)=> setName(e.target.value)} value={name} type="text" name="name" required/><label htmlFor="name">Name</label>
+                <input className='edit-input' onChange={(e)=> setUsername(e.target.value)} value={username} type="text" name="name" required/><label htmlFor="name">Name</label>
             </div>
             </form>
         </div>

@@ -9,7 +9,7 @@ function MyProfile ({ user, setUser }) {
     const [ edit, setEdit ] = useState(false)
     const { username, email, phone_number, birthdate, friends, profile_picture } = user
     const [ newFriends, setNewFriends ] = useState(user.friends)
-
+console.log(user)
 
     const handleRemoveFriend = (id) => {
         fetch(`/friends/${id}`, {
@@ -30,11 +30,6 @@ function MyProfile ({ user, setUser }) {
                 <td>{friend.username}</td>
                 <td>{friend.birthdate}</td>
                 <td>
-                    <Link to='/gifts'>
-                    <button className="ui primary button" style={{fontSize:'11px'}}>Send Gift</button>
-                    </Link>
-                </td>
-                <td>
                     <Link to={`/friends/${friend.id}`} > 
                     <button className="ui primary button friend-edit" style={{fontSize:'11px'}}>
                     Edit</button>
@@ -43,8 +38,10 @@ function MyProfile ({ user, setUser }) {
                 </td>
             </tr> 
     )})
- 
+
     return (
+        <>
+        {user ? (
         <section className='myProfile'>
         { edit ? 
         <EditProfileForm user={user} setUser={setUser} edit={edit} setEdit={setEdit} renderFriends={renderFriends}/>
@@ -55,7 +52,7 @@ function MyProfile ({ user, setUser }) {
             <img src={profile_picture ? profile_picture : "https://simg.nicepng.com/png/small/128-1280406_view-user-icon-png-user-circle-icon-png.png"} alt="user" style={{width:"70%"}} />
             <h1>{username ? username : "Add Name"}</h1>
             {/* <p>{user_name}</p> */}
-            <button onClick={()=>setEdit(!edit)} className="ui primary button">Edit  Profile</button>
+            {/* <button onClick={()=>setEdit(!edit)} className="ui primary button">Edit  Profile</button> */}
         </div>
         <div className="right">
             <div className="info">
@@ -77,20 +74,8 @@ function MyProfile ({ user, setUser }) {
             </div>  
       
             <div className="projects">
-                <h3>Orders & Friends</h3>
+                <h3>Friends</h3>
                 <div className="projects_data">
-                    <div className="data">
-                        <h4>Recent Orders</h4>
-                        <table className="content-table">
-                            <thead>
-                              <tr>
-                                <th>Name</th>
-                                <th>Date</th>
-                                <th>Order Detail</th>
-                              </tr>
-                            </thead>
-                        </table>
-                    </div>
                     <div className="data">
                         <h4>Friends</h4>
                         <table className="content-table">
@@ -122,6 +107,8 @@ function MyProfile ({ user, setUser }) {
     
     }
     </section>
+ ) : null}{" "}
+    </>
     )
 }
 

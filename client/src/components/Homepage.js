@@ -14,10 +14,6 @@ function Homepage({user, setUser}) {
     return (
       <div>
         <Switch>
-        {/* <div >
-          <NavBar user={user} setUser={setUser}/>
-        </div> */}
-
           <Route exact path="/login">
             <Login onLogin={setUser} />
           </Route>
@@ -25,15 +21,6 @@ function Homepage({user, setUser}) {
           <Route exact path="/signup">
             <Signup onLogin={setUser} />
           </Route>
-          {/* <Route path="/myProfile">
-                <MyProfile setUser={setUser} user={user} />
-            </Route>
-            <Route path="/new-friend">
-                <AddNewFriend setUser={setUser} user={user} />
-            </Route>
-            <Route path="/friends/:id">
-                <EditFriend setUser={setUser} user={user} />
-            </Route> */}
         </Switch>
       </div>
     );

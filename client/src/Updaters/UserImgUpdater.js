@@ -2,31 +2,32 @@ import { useState } from 'react'
 
 function UserImgUpdater ({ user, setUser, editUserImg, setEditUserImg }) {
     const userImg = () => {
-        if (user.img_url === null) {
+        if (user.profile_picture === null) {
             return defaultImg
         } else {
-            return user.img_url
+            return user.profile_picture
         }
     }
     const defaultImg = "https://simg.nicepng.com/png/small/128-1280406_view-user-icon-png-user-circle-icon-png.png"
 
-    const [img_url, setImgUrl]= useState(userImg())
+    const [profile_picture, setImgUrl]= useState(userImg())
 
     const handleUpdate = (e) => {
         e.preventDefault();
         fetch(`users/${user.id}`, {
             method: "PATCH",
             headers: {
+                Accept: "application/json",
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                img_url: img_url
+                profile_picture: profile_picture
             }),
         })
         .then((r) => r.json())
         .then(data => {
             setUser(data)
-            setEditUserImg(!editUserImg)
+            // setEditUserImg(!editUserImg)
         }) 
     }
 
@@ -43,7 +44,7 @@ function UserImgUpdater ({ user, setUser, editUserImg, setEditUserImg }) {
                 </span>   
            
             <div className="form-group">
-                <input style={{padding: ".5rem .1rem"}} onChange={(e)=> setImgUrl(e.target.value)} value={img_url} type="text" name="img_url" required/><label  htmlFor="img_url">Img URL</label>
+                <input style={{padding: ".5rem .1rem"}} onChange={(e)=> setImgUrl(e.target.value)} value={profile_picture} type="text" name="profile_picture" required/><label  htmlFor="profile_picture">Img URL</label>
             </div>
             </form>
         </div>

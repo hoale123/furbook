@@ -9,6 +9,9 @@ function ProfileUpdate({ user, setUser }) {
   const [password, setPassword] = useState(user.password);
   const [profilePicture, setProfilePicture] = useState(user.profile_picture);
   const [bio, setBio] = useState(user.bio);
+  const [birthdate, setBirthdate] = useState(user.birthda);
+  const [email, setEmail] = useState(user.email);
+
   const history = useHistory();
 
   function onSubmit(e) {
@@ -24,6 +27,8 @@ function ProfileUpdate({ user, setUser }) {
         password: password,
         profile_picture: profilePicture,
         bio: bio,
+        birthdate:birthdate,
+        email:email
       }),
     })
       .then((r) => r.json())
@@ -61,6 +66,7 @@ function ProfileUpdate({ user, setUser }) {
           label="Password"
           value={password}
           type="password"
+          name="password"
           control={Input}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -80,6 +86,23 @@ function ProfileUpdate({ user, setUser }) {
           control={TextArea}
           onChange={(e) => setBio(e.target.value)}
         />
+
+        <input className='edit-input' 
+        onChange={(e)=> setBirthdate(e.target.value)} 
+        value={birthdate} 
+        type="date" 
+        name="birthdate" 
+        required/>
+        <label htmlFor="birthdate">Birthday</label>  
+
+        <Form.Field
+          label="Email"
+          value={email}
+          autoComplete="off"
+          control={Input}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+           
 
         <Button>Update</Button>
         {errors.map((error) => (
