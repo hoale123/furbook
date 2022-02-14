@@ -1,7 +1,7 @@
 import PostContainer from "./PostContainer";
 import Profile from "./Profile";
 import { Switch, Route } from "react-router-dom";
-
+import AddNewFriend from '../Friends/AddNewFriend'
 function Main({ user, setUser }) {
   return (
     <div
@@ -21,6 +21,9 @@ function Main({ user, setUser }) {
 
         <Route exact path="/profile-edit">
           <Profile user={user} setUser={setUser} />
+        </Route>
+        <Route exact path="/new-friend">
+        <AddNewFriend setUser={setUser} user={user} />
         </Route>
       </Switch>
     </div>

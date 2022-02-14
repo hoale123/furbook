@@ -45,16 +45,6 @@ function TitleHeader({ user }) {
           <Header as="h2" style={{ fontWeight: "lighter" }}>
             Welcome to FurBook{" "}
           </Header>
-          {/* <Image
-            src={typingLogo}
-            style={{
-              float: "left",
-              height: "100px",
-              width: "200px",
-              margin: "20px",
-              
-            }}
-          /> */}
           <p style={{ fontSize: "16px" }}>
             The best social platform for all pets
           </p>

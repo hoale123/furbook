@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
+import { Switch,Route } from "react-router-dom";
+// import AddNewFriend from '../Friends/AddNewFriend'
+// import EditFriend from '../Friends/EditFriend'
 
 function NavBar({ user, setUser }) {
   const history = useHistory();
@@ -45,6 +48,18 @@ function NavBar({ user, setUser }) {
            Profile
           </NavLink>
         </Menu.Item>
+
+        <Menu.Item>  
+        <NavLink
+            strict
+            to="/myProfile"
+            style={{ color: "grey" }}
+            activeStyle={{ fontWeight: "bold", color: "black" }}
+          >
+           myProfile
+          </NavLink>
+        </Menu.Item>
+        
 
         {user ? (
           <Menu.Item>

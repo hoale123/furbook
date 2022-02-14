@@ -162,7 +162,7 @@ function Post({
             {/* <Comments /> */}
         <CommentForm post={singlePost} user={user}handleAddComment={handleAddComment} />
          <>
-          {comments.map((comment) => (
+          {post.comments.map((comment) => (
             
             <CommentItem
             key={comment.id}

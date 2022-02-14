@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_190536) do
+ActiveRecord::Schema.define(version: 2022_02_10_165942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 2022_02_05_190536) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "username"
+    t.text "bio"
+    t.string "profile_picture"
+    t.string "email"
+    t.string "phone_number"
+    t.string "birthdate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -38,11 +51,15 @@ ActiveRecord::Schema.define(version: 2022_02_05_190536) do
     t.string "password_digest"
     t.string "profile_picture"
     t.text "bio"
+    t.string "email"
+    t.string "phone_number"
+    t.string "birthdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "friends", "users"
   add_foreign_key "posts", "users"
 end

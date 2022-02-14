@@ -41,15 +41,10 @@ class UsersController < ApplicationController
   end
     
 
-  # def destroy
-  #     user = User.find_by(id: params[:id])
-  #     user.destroy
-  # end
-
   private
   # Only allow a list of trusted parameters through.
   def user_params
-      params.permit(:username, :password, :profile_picture, :bio)
+      params.permit(:username, :password, :profile_picture, :bio,:birthdate,:phone_number,:email, :id)
   end 
 
   # Use callbacks to share common setup or constraints between actions.

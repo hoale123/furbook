@@ -27,14 +27,3 @@ function App() {
 }
 
 export default App;
-
-    // <PetNav/>
-    // <div class="container">
-    //   <div class="row">
-    //     <PictureBox/>
-    //     <AboutBox/>
-    //   </div>
-    //   <div class="row">
-    //     <Posts/>
-    //   </div>
-    // </div>
