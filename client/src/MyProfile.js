@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 function MyProfile ({ user, setUser }) {
     const [ edit, setEdit ] = useState(false)
-    const { username, email, phone_number, birthdate, friends, profile_picture } = user
+    const { bio, username, email, phone_number, birthdate, friends, profile_picture } = user
     const [ newFriends, setNewFriends ] = useState(user.friends)
 console.log(user)
 
@@ -21,7 +21,7 @@ console.log(user)
 
     const renderFriends = newFriends.map(friend => {
           return (
-            <tr key={friend.id}>
+              <tr key={friend.id}>
                 <td>
                     <div className="friedns-img">
                         <img src={friend.profile_picture} alt={friend.username}></img>
@@ -51,8 +51,6 @@ console.log(user)
         <div className="left">
             <img src={profile_picture ? profile_picture : "https://simg.nicepng.com/png/small/128-1280406_view-user-icon-png-user-circle-icon-png.png"} alt="user" style={{width:"70%"}} />
             <h1>{username ? username : "Add Name"}</h1>
-            {/* <p>{user_name}</p> */}
-            {/* <button onClick={()=>setEdit(!edit)} className="ui primary button">Edit  Profile</button> */}
         </div>
         <div className="right">
             <div className="info">
@@ -71,13 +69,17 @@ console.log(user)
                         <p>{birthdate ? birthdate : " Add Birthday"}</p>
                     </div>
                 </div>
+                    <div className="data">
+                        <h4>Bio</h4>
+                        <p>{bio ? bio : " Bio"}</p>
+                    </div>
             </div>  
       
             <div className="projects">
                 <h3>Friends</h3>
                 <div className="projects_data">
                     <div className="data">
-                        <h4>Friends</h4>
+                        <h4>Friends ({friends.length})</h4>
                         <table className="content-table">
                             <thead>
                               <tr>

@@ -56,11 +56,9 @@ function NavBar({ user, setUser }) {
             style={{ color: "grey" }}
             activeStyle={{ fontWeight: "bold", color: "black" }}
           >
-           myProfile
+           {user.username}' Friends
           </NavLink>
         </Menu.Item>
-        
-
         {user ? (
           <Menu.Item>
             <Menu.Header onClick={handleLogout}   style={{ color: "grey", cursor: "pointer"}}>

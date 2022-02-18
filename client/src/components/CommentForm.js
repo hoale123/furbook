@@ -27,8 +27,8 @@ function CommentForm({ handleAddComment,post,user }) {
       body: JSON.stringify(formData),
     })
       .then((r) => r.json())
-      .then((newSpice) => {
-        handleAddComment(newSpice);
+      .then((comment) => {
+        handleAddComment(comment);
         setFormData({
           body: "",
           post_id: "",
@@ -53,3 +53,4 @@ function CommentForm({ handleAddComment,post,user }) {
 }
 
 export default CommentForm;
+              

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   # before_action :set_post, only: [:show, :update, :destroy]
-  before_action :find_post, only: [:show, :update, :destroy]
+  before_action :find_post, only: [:show, :update, :destroy,:create]
   skip_before_action :authorize, only: :index
 
   # GET /posts
