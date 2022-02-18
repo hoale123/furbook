@@ -6,9 +6,10 @@ function CommentItem({ comment,user,post,username }) {
 
   return (
     <div >
-      {user.username? (
+      {/* {comment.user_id === user.id? ( */}
+      {comment.user_id === user.id? (
       <><h5>{user.username} Comment:</h5> <p>{comment.body}</p></>
-       ): null} 
+      ): <><h5>{username} Comment:</h5> <p>{comment.body}</p></>}  
     </div>
 
   );
