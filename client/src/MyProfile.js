@@ -29,6 +29,8 @@ console.log(user)
                 </td>
                 <td>{friend.username}</td>
                 <td>{friend.birthdate}</td>
+                <td>{friend.bio}</td>
+                
                 <td>
                     <Link to={`/friends/${friend.id}`} > 
                     <button className="ui primary button friend-edit" style={{fontSize:'11px'}}>
@@ -77,13 +79,14 @@ console.log(user)
                 <h3>Friends</h3>
                 <div className="projects_data">
                     <div className="data">
-                        <h4>Friends</h4>
+                        <h4>Friends ({friends.length})</h4>
                         <table className="content-table">
                             <thead>
                               <tr>
                                 <th></th>
                                 <th>Name</th>
                                 <th>Birthday</th>
+                                <th>Bio</th>
                                 <th>
                                     <Link to='/new-friend'>
                                     <button className="ui primary button" style={ {fontSize:'11px'}}>Add New friend</button>

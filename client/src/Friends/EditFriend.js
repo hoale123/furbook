@@ -51,7 +51,11 @@ function EditFriend ({ user, setUser }) {
                         <div className="friend-user-details">
                             <div className="friend-input-box">
                                 <span className="friend-details">Full Name</span>
-                                <input onChange={handleFormData} name='name' value={formData.name} type="text" placeholder="Enter friend's name" required />
+                                <input onChange={handleFormData} name='username' value={formData.username} type="text" placeholder="Enter friend's name" required />
+                            </div>
+                            <div className="friend-input-box">
+                                <span className="friend-details">Bio</span>
+                                <input onChange={handleFormData} name='bio' value={formData.bio} type="text" placeholder="Enter friend's bio" required />
                             </div>
                             <div className="friend-input-box">
                                 <span className="friend-details">Phone Number</span>
@@ -67,7 +71,7 @@ function EditFriend ({ user, setUser }) {
                             </div>
                             <div className="friend-input-box">
                                 <span className="friend-details">Image</span>
-                                <input onChange={handleFormData} name='img_url' value={formData.img_url} type="text" placeholder="Add friend's Image" required />
+                                <input onChange={handleFormData} name='profile_picture' value={formData.profile_picture} type="text" placeholder="Add friend's Image" required />
                             </div>
                             { errors.length > 0 ?
                             <div className="friend-input-box">

@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import GoToTop from './GoToTop'
-// import './CSS/editProfileForm.css'
 import EmailUpdater from './Updaters/EmailUpdater'
 import NameUpdater from './Updaters/NameUpdater'
-// import UsernameUpdater from './Updaters/UsernameUpdater'
 import UserImgUpdater from './Updaters/UserImgUpdater'
 import PhoneUpdater from './Updaters/PhoneUpdater'
 import BirthdateUpdater from './Updaters/BirthdateUpdater'
