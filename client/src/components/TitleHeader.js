@@ -48,6 +48,10 @@ function TitleHeader({ user }) {
           <p style={{ fontSize: "16px" }}>
             The best social platform for all pets
           </p>
+          <p style={{ fontSize: "16px" }}>
+            Username: Rabbit
+          </p>
+          Password:1234567
 
           <div style={{ textAlign: "center", fontSize: "16px" }}>
             <Link to="/login">Login &ensp;</Link>
