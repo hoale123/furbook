@@ -11,6 +11,7 @@ function ProfileUpdate({ user, setUser }) {
   const [bio, setBio] = useState(user.bio);
   const [birthdate, setBirthdate] = useState(user.birthda);
   const [email, setEmail] = useState(user.email);
+  const [phone_number, setPhone_number] = useState(user.phone_number);
 
   const history = useHistory();
 
@@ -28,7 +29,8 @@ function ProfileUpdate({ user, setUser }) {
         profile_picture: profilePicture,
         bio: bio,
         birthdate:birthdate,
-        email:email
+        email:email,
+        phone_number:phone_number
       }),
     })
       .then((r) => r.json())
@@ -78,6 +80,14 @@ function ProfileUpdate({ user, setUser }) {
           control={Input}
           onChange={(e) => setProfilePicture(e.target.value)}
         />
+
+        <Form.Field
+          label="phone_number"
+          value={phone_number}
+          autoComplete="on"
+          control={Input}
+          onChange={(e) => setPhone_number(e.target.value)}
+        />  
 
         <Form.Field
           label="Bio"
