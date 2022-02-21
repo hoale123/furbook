@@ -45,7 +45,7 @@ function AddNewFriend ({ user, setUser }) {
     return(
     <section className='friend-form'>
         <div className="friend-container">
-            <div className="friend-title">Add New Friend
+            <div className="friend-title">Add New Friends
             <Link to='/myProfile'>
             <span style={{paddingLeft: '530px'}}>X</span>
             </Link>
