@@ -145,9 +145,7 @@ function Post({
             <Button onClick={handleRemove} className="remove">
               Delete
             </Button>
-        <CommentForm post={singlePost} user={user}handleAddComment={handleAddComment} />
 
-            {post.comments.map((comment) => (
               
               <CommentItem
               key={comment.id}
@@ -156,7 +154,7 @@ function Post({
               user={user}
               post={post}
               />
-              ))}
+              ))} */}
           </>
           
           ) :
@@ -165,7 +163,6 @@ function Post({
             {/* <Comments /> */}
         <CommentForm post={singlePost} user={user}handleAddComment={handleAddComment} />
          <>
-          {post.comments.map((comment) => (
             <CommentItem
             key={comment.id}
             comment={comment}

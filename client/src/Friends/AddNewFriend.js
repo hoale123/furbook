@@ -58,6 +58,10 @@ function AddNewFriend ({ user, setUser }) {
                                 <input onChange={handleFormData} name='username' type="text" placeholder="Enter friend's name" required />
                             </div>
                             <div className="friend-input-box">
+                                <span className="friend-details">Bio</span>
+                                <input onChange={handleFormData} name='bio' type="text" placeholder="Enter bio" required />
+                            </div>
+                            <div className="friend-input-box">
                                 <span className="friend-details">Phone Number</span>
                                 <input onChange={handleFormData} name='phone_number' type="text" placeholder="Enter friend's number" required />
                             </div>

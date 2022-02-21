@@ -54,6 +54,10 @@ function EditFriend ({ user, setUser }) {
                                 <input onChange={handleFormData} name='username' value={formData.username} type="text" placeholder="Enter friend's name" required />
                             </div>
                             <div className="friend-input-box">
+                                <span className="friend-details">Bio</span>
+                                <input onChange={handleFormData} name='bio' value={formData.bio} type="text" placeholder="Enter friend's bio" required />
+                            </div>
+                            <div className="friend-input-box">
                                 <span className="friend-details">Phone Number</span>
                                 <input onChange={handleFormData} value={formData.phone_number} name='phone_number' type="text" placeholder="Enter friend's number" required />
                             </div>
