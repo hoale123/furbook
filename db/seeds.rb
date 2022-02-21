@@ -10,14 +10,10 @@ puts "Seeding..."
 User.destroy_all
 Post.destroy_all
 Comment.destroy_all
+Friend.destroy_all
 
 # u1 = 
-User.create(username:"Rabbit", password:  "1234567", profile_picture:"https://as2.ftcdn.net/v2/jpg/01/96/45/69/1000_F_196456983_N0gdnvEbyrcAmyTfJkgegBHstQffzdhC.jpg", bio: "i am cow",email: "hoa.com", phone_number: "1-482-384-2958", birthdate: "1999-01-04" )
-User.create(username:"Cat", password:  "1234567", profile_picture:"https://img.freepik.com/free-vector/cute-cat-holding-fish-cartoon-icon-illustration-animal-food-icon-concept-isolated-flat-cartoon-style_138676-2171.jpg?w=740", bio: "i am cow",email: "hello.com", phone_number: "1-482-384-2958", birthdate: "1999-01-04" )
-User.create(username:"TEAMB", password:  "1234567", profile_picture:"https://img.freepik.com/free-vector/cute-cat-holding-fish-cartoon-icon-illustration-animal-food-icon-concept-isolated-flat-cartoon-style_138676-2171.jpg?w=740", bio: "i am cow",email: "hello.com", phone_number: "1-482-384-2958", birthdate: "1999-01-04" )
 
-# p1 = 
-Post.create(text: "I am a Rabbit", user_id: 1)
 Post.create(text: "Pur Pur Pur", user_id: 2)
 
 
@@ -54,6 +50,7 @@ Friend.create(user_id: 3, username: "Marcus Shimotsu",bio: "i am cow", email: "C
 Friend.create(user_id: 3, username: "Nick Lunn",bio: "i am cow", email: "Cow.com", phone_number: "1-293-392-4846", birthdate: "2000-09-10", profile_picture: "https://t3.ftcdn.net/jpg/01/09/82/00/240_F_109820094_ezCZ1ukWz5Yj6bFqcodftfbIGiyOQ7Xu.jpg")
 Friend.create(user_id: 3, username: "Wasanta Pruttisarikorn",bio: "i am cow", email: "Cow.com", phone_number: "1-293-392-4846", birthdate: "2000-09-10", profile_picture: "https://t3.ftcdn.net/jpg/01/09/82/00/240_F_109820094_ezCZ1ukWz5Yj6bFqcodftfbIGiyOQ7Xu.jpg")
 Friend.create(user_id: 3, username: "Will Brennan(one eye)",bio: "i am cow", email: "Cow.com", phone_number: "1-293-392-4846", birthdate: "2000-09-10", profile_picture: "https://t3.ftcdn.net/jpg/01/09/82/00/240_F_109820094_ezCZ1ukWz5Yj6bFqcodftfbIGiyOQ7Xu.jpg")
+
 
 
 

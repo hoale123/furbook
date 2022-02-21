@@ -1,7 +1,5 @@
 
 function CommentItem({ comment,user,post,username }) {
-  // console.log(username)
-  // console.log(comment.user.username)
 
 
   return (
@@ -15,3 +13,4 @@ function CommentItem({ comment,user,post,username }) {
 }
 
 export default CommentItem;
+// comments.map(comment => comment.username)
