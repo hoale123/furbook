@@ -22,8 +22,8 @@ Post.create(text: "Pur Pur Pur", user_id: 2)
 
 
 # c1 = 
-Comment.create(body:"Nice Post", user_id: 1, post_id: 1)
-Comment.create(body:"Love it", user_id: 2, post_id: 2)
+Comment.create(body:"Nice Post", user_id: 1, post_id: 1, username:"Rabbit")
+Comment.create(body:"Love it", user_id: 2, post_id: 2,username:"Cat")
 
 
 Friend.create(user_id: 1, username: "Dog",bio: "I am  Dog", email: "dog.com", phone_number: "1-482-384-2958", birthdate: "1999-01-04",profile_picture:"https://media.istockphoto.com/photos/funny-west-highland-white-terrier-dog-decorated-with-photo-props-sits-picture-id1292884801?b=1&k=20&m=1292884801&s=170667a&w=0&h=L5QgEFpFN1be2Qx8Q9PUWolafU_ecaqYiNwga6eoqxs=")

@@ -6,7 +6,9 @@ function CommentForm({ handleAddComment,post,user }) {
   const initialState = {
     body: "",
     post_id: post.id,
-    user_id: user.id
+    user_id: user.id,
+    username: user.username,
+
   };
   const [formData, setFormData] = useState(initialState);
 
@@ -32,7 +34,8 @@ function CommentForm({ handleAddComment,post,user }) {
         setFormData({
           body: "",
           post_id: "",
-          user_id: ""
+          user_id: "",
+          username: user.username,
         });
       });
   }

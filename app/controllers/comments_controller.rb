@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   skip_before_action :authorize, only: [:create, :index, :show]
-  before_action :set_comment, only: [:show, :update, :destroy]
+  before_action :set_comment, only: [:show, :update, :destroy,:index]
 
   # GET /comments
   def index
@@ -50,6 +50,6 @@ end
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:body, :user_id, :post_id)
+      params.require(:comment).permit(:body, :user_id, :post_id,:username)
     end
 end
