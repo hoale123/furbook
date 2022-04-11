@@ -2,6 +2,7 @@ import PostContainer from "./PostContainer";
 import Profile from "./Profile";
 import { Switch, Route } from "react-router-dom";
 import AddNewFriend from '../Friends/AddNewFriend'
+
 function Main({ user, setUser }) {
   return (
     <div

@@ -96,6 +96,7 @@ function Post({
 
   return (
     <>
+    <h2>Refresh to see comments.</h2>
       <div
         className="post"
         style={{
@@ -145,14 +146,13 @@ function Post({
             <Button onClick={handleRemove} className="remove">
               Delete
             </Button>
-        <CommentForm post={singlePost} user={user}handleAddComment={handleAddComment} />
+            <CommentForm post={singlePost} user={user}handleAddComment={handleAddComment} />
             {post.comments.map((comment) => (
               
               <CommentItem
+              user={username}
               key={comment.id}
               comment={comment}
-              username={username}
-              user={user}
               post={post}
               />
               ))}
