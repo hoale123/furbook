@@ -7,9 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 puts "Seeding..."
-User.destroy_all
-Post.destroy_all
-Comment.destroy_all
 # u1 = 
 User.create(username:"Rabbit", password:  "1234567", profile_picture:"https://as2.ftcdn.net/v2/jpg/01/96/45/69/1000_F_196456983_N0gdnvEbyrcAmyTfJkgegBHstQffzdhC.jpg", bio: "i am cow",email: "hoa.com", phone_number: "1-482-384-2958", birthdate: "1999-01-04" )
 User.create(username:"Cat", password:  "1234567", profile_picture:"https://img.freepik.com/free-vector/cute-cat-holding-fish-cartoon-icon-illustration-animal-food-icon-concept-isolated-flat-cartoon-style_138676-2171.jpg?w=740", bio: "i am cow",email: "hello.com", phone_number: "1-482-384-2958", birthdate: "1999-01-04" )
